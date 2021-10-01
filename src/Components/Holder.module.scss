@@ -1,0 +1,132 @@
+@keyframes unglow{
+    from {box-shadow: none;}
+    to {box-shadow: none;}
+}
+@keyframes appear{
+    from {opacity: -1;}
+    to {opacity: 1;}
+}
+@keyframes disappear{
+    from {opacity: 1;}
+    to {opacity: -1;}
+}
+
+.holder{
+    height: 700px;
+    width: 600px;
+    margin: 4% 0;
+    background-color: rgb(70, 70, 182);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    &:hover {
+        box-shadow: 0px 0px 40px 10px rgb(255, 115, 0);
+        transition: 0.2s ease;
+    }
+    .holder__webps{
+        height: 200px;
+        width: 200px;
+        .webp{
+            height: 200px;
+            width: auto;       
+        }
+    }
+    .holder__jpgsInactive{
+        height: 400px;
+        width: 500px;
+
+        overflow-x: hidden;
+        overflow-y: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .jpg{
+            width: 700px;
+            animation-name: disappear;
+            animation-duration: 1s;
+            opacity: -1;
+        }
+    }
+    .holder__jpgsActive{
+        height: 400px;
+        width: 500px;
+
+        overflow-x: hidden;
+        overflow-y: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
+            transition: 0.2s ease;
+        }
+        .jpg{
+            width: 700px;
+            animation-name: appear;
+            animation-duration: 1s;
+        }
+    }
+}
+
+.popUp{
+    //top, left, right and bottom are positional co-ordinate indicators for where the component's edges should be. an alternative to height/width for fixed-position elements.
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    //very important! z-index is what puts all our stuff in front.
+    z-index: 100;
+    .popUp__jpg{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+
+        height: 90vh;
+        width: auto;
+    }
+}
+
+
+
+@media screen and (max-width: 600px){
+    .holder{
+        height: 400px;
+        width: 350px;
+        .holder__webps{
+            height: 125px;
+            width: 125px;
+            .webp{
+                height: 125px;
+                width: 125px;       
+            }
+        }
+        .holder__jpgsInactive{
+            height: 250px;
+            width: 300px;
+            .jpg{
+                width: 500px;
+                animation-name: disappear;
+                animation-duration: 1s;
+                opacity: -1;
+            }
+        }
+        .holder__jpgsActive{
+            height: 250px;
+            width: 300px;
+            .jpg{
+                width: 500px;
+                animation-name: appear;
+                animation-duration: 1s;
+            }
+        }
+    }
+}
