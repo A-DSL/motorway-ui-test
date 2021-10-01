@@ -51,7 +51,6 @@ const App = () => {
           <input type="range" name="salary" min="20000" max="80000" onChange={updateSalary}/>
           <span className={styles.practiceForm__salary}>£{salary}</span>
           <p></p>
-          <button>Clear</button> 
           <button>Submit</button>
         </form>
       </div>
