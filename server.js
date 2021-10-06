@@ -1,6 +1,8 @@
 'use strict';
 
+//express API
 const app = require('express')();
+//image source
 const images = require('./src/images.json');
 
 const randomInterval = (min, max) => {
@@ -12,7 +14,7 @@ app.get('/images', ({ query }, res) => {
 
   setTimeout(() => {
     return res.status(200).json(i);
-  }, randomInterval(500, 1500));
+  }, 10);
 });
 
 app.listen(5000, () => {
